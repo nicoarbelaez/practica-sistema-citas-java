@@ -15,7 +15,7 @@ public class Main {
         myDoctor.addAvailableAppointment(new Date(), "4pm");
         myDoctor.addAvailableAppointment(new Date(), "10am");
         myDoctor.addAvailableAppointment(new Date(), "1pm");
-
+        
         System.out.println(myDoctor);
         // for (Doctor.AvailableAppointment aAppointment : myDoctor.getAvailableAppointments()) {
         //     System.out.println(aAppointment.getDate() + " " + aAppointment.getTime());
