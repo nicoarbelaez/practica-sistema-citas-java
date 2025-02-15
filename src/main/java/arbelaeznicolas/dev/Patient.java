@@ -1,14 +1,14 @@
 package arbelaeznicolas.dev;
 
 public class Patient {
-    public String name;
-    public String email;
-    public String address;
-    public String phoneNumber;
-    public String birthday;
-    public double weight;
-    public double height;
-    public String blood;
+    private String name;
+    private String email;
+    private String address;
+    private String phoneNumber;
+    private String birthday;
+    private double weight;
+    private double height;
+    private String blood;
 
     Patient(String name, String email) {
         this.name = name;
