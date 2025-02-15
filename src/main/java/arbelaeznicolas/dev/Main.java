@@ -17,19 +17,8 @@ public class Main {
             System.out.println(aAppointment.getDate() + " " + aAppointment.getTime());
         }
 
-        // System.out.println("\n");
-        // Patient patient = new Patient("Alejandra", "alejandra@mail.com");
-        // Patient patient2 = new Patient("Anahi", "anahi@mail.com");
-
-        // System.out.println(patient.getName());
-        // System.out.println(patient2.getName());
-        // patient2 = patient;
-
-        // System.out.println(patient.getName());
-        // System.out.println(patient2.getName());
-
-        // patient.setName("Manuel");
-        // System.out.println(patient.getName());
-        // System.out.println(patient2.getName());
+        System.out.println("\n");
+        Patient patient = new Patient("Alejandra", "alejandra@mail.com");
+        System.out.println(patient);
     }
 }
