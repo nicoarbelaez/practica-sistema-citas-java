@@ -1,4 +1,4 @@
-package arbelaeznicolas.dev;
+package arbelaeznicolas.dev.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 public class Doctor extends User {
     private String speciality;
 
-    Doctor(String name, String email, String speciality) {
+    public Doctor(String name, String email, String speciality) {
         super(name, email);
         System.out.println("El nombre del doctor asignado es: " + name);
         this.speciality = speciality;

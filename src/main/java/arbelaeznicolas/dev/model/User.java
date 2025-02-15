@@ -1,4 +1,4 @@
-package arbelaeznicolas.dev;
+package arbelaeznicolas.dev.model;
 
 public class User {
     private int id;

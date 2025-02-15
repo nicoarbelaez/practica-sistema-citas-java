@@ -4,6 +4,9 @@ import static arbelaeznicolas.dev.ui.UIMenu.*;
 
 import java.util.Date;
 
+import arbelaeznicolas.dev.model.Doctor;
+import arbelaeznicolas.dev.model.Patient;
+
 public class Main {
     public static void main(String[] args) {
         // showMenu();
