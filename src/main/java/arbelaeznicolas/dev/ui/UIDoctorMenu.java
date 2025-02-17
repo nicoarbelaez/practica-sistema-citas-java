@@ -10,6 +10,7 @@ public class UIDoctorMenu {
 
     public static void showDoctorMenu() {
         int response = 0;
+        Scanner sc = new Scanner(System.in);
         do {
             System.out.println("\n\n");
             System.out.println("Doctor");
@@ -18,7 +19,6 @@ public class UIDoctorMenu {
             System.out.println("2. My Scheduled Appointments");
             System.out.println("0. Logout");
 
-            Scanner sc = new Scanner(System.in);
             response = sc.nextInt();
 
             switch (response) {
@@ -26,13 +26,14 @@ public class UIDoctorMenu {
                     showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
+                    showAvailableAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
                     break;
             }
-            sc.close();
         } while (response != 0);
+        sc.close();
     }
 
     private static void showAddAvailableAppointmentsMenu() {
@@ -74,11 +75,27 @@ public class UIDoctorMenu {
                 } while (responseTime == 2);
 
                 UIMenu.doctorLogged.addAvailableAppointment(date, time);
+                checkDoctorAvailableAppointments(UIMenu.doctorLogged);
             } else if (response == 0) {
                 showDoctorMenu();
             }
         } while (response != 0);
         sc.close();
+    }
+
+    private static void showAvailableAppointments() {
+        System.out.println();
+        System.out.println("::My Scheduled Appointments");
+        if (UIMenu.doctorLogged.getAvailableAppointments().size() == 0) {
+            System.out.println("Don't have appointments");
+            return;
+        }
+
+        for (int i = 0; i < UIMenu.doctorLogged.getAvailableAppointments().size(); i++) {
+            int j = i + 1;
+            System.out.println(j + ". " + "Date: " + UIMenu.doctorLogged.getAvailableAppointments().get(i).getDate()
+                    + " Time: " + UIMenu.doctorLogged.getAvailableAppointments().get(i).getTime());
+        }
     }
 
     private static void checkDoctorAvailableAppointments(Doctor doctor) {
