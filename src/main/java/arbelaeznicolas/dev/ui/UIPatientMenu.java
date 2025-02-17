@@ -1,7 +1,11 @@
 package arbelaeznicolas.dev.ui;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
+
+import javax.print.Doc;
 
 import arbelaeznicolas.dev.model.Doctor;
 
@@ -36,9 +40,29 @@ public class UIPatientMenu {
 
     private static void showBookAppointmentMenu() {
         int response = 0;
+        Scanner sc = new Scanner(System.in);
         do {
             System.out.println("::Book an Appointment");
             System.out.println("::Select date: ");
+            Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
+
+            int k = 0;
+            for (int i = 0; i < UIDoctorMenu.doctorsAvailableAppointments.size(); i++) {
+                ArrayList<Doctor.AvailableAppointment> availableAppointments = UIDoctorMenu.doctorsAvailableAppointments
+                        .get(i)
+                        .getAvailableAppointments();
+
+                Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
+
+                for (int j = 0; j < availableAppointments.size(); j++) {
+                    k++;
+                    System.out.println(k + ". " + availableAppointments.get(j).getDate());
+                    doctorAppointments.put(j, UIDoctorMenu.doctorsAvailableAppointments.get(i));
+                    doctors.put(k, doctorAppointments);
+                }
+            }
+
+            int responseDateSelected = sc.nextInt();
         } while (response != 0);
     }
 }
