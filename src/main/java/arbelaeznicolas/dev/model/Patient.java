@@ -1,10 +1,28 @@
 package arbelaeznicolas.dev.model;
 
+import java.util.Date;
+import java.util.ArrayList;
+
+import arbelaeznicolas.dev.AppointmentDoctor;
+
 public class Patient extends User {
     private String birthday;
     private double weight;
     private double height;
     private String blood;
+
+    private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
+    // private ArraysList<AppointmentNurse> appointmentNurses = new ArrayList<>();
+
+    public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
+        return appointmentDoctors;
+    }
+
+    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
+        appointmentDoctor.schedule(date, time);
+        appointmentDoctors.add(appointmentDoctor);
+    }
 
     public Patient(String name, String email) {
         super(name, email);
