@@ -58,16 +58,17 @@ public class UIMenu {
         patients.add(new Patient("Carlos Sánchez", "carlos@mail.com"));
 
         boolean emailCorrect = false;
+        Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Insert your email: [a@a.com]");
-            Scanner sc = new Scanner(System.in);
-            String email = sc.nextLine();
+            String email = sc.next();
 
             if (userType == 1) {
                 for (Doctor d : doctors) {
                     if (d.getEmail().equals(email)) {
                         emailCorrect = true;
                         doctorLogged = d;
+                        UIDoctorMenu.showDoctorMenu();
                     }
                 }
             }
@@ -79,10 +80,10 @@ public class UIMenu {
                     }
                 }
             }
-            sc.close();
         } while (!emailCorrect);
+        sc.close();
     }
-
+    
     public static void showPatientMenu() {
         Scanner sc = new Scanner(System.in);
         int response = 0;

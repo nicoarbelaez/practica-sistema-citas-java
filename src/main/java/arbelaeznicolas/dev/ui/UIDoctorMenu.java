@@ -23,6 +23,7 @@ public class UIDoctorMenu {
 
             switch (response) {
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
@@ -36,6 +37,7 @@ public class UIDoctorMenu {
 
     private static void showAddAvailableAppointmentsMenu() {
         int response = 0;
+        Scanner sc = new Scanner(System.in);
         do {
             System.out.println();
             System.out.println("::Add Available Appointment");
@@ -47,7 +49,6 @@ public class UIDoctorMenu {
             }
             System.out.println("0. Return");
 
-            Scanner sc = new Scanner(System.in);
             response = sc.nextInt();
 
             if (response > 0 && response < 4) {
@@ -76,8 +77,8 @@ public class UIDoctorMenu {
             } else if (response == 0) {
                 showDoctorMenu();
             }
-            sc.close();
         } while (response != 0);
+        sc.close();
     }
 
     private static void checkDoctorAvailableAppointments(Doctor doctor) {
