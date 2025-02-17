@@ -25,6 +25,24 @@ public class Main {
         User userPa = new Patient("Anahí", "anahi@mail.com");
         userPa.showDataUser();
 
+        User user1 = new User("Anahí", "anahi@mail.com") {
+            @Override
+            public void showDataUser() {
+                System.out.println("Doctor");
+                System.out.println("Hospital: Cruz Verde");
+                System.out.println("Departamento: Geriatría");
+            }
+
+        };
+        user1.showDataUser();
+
+        ISchedulable iSchedulable = new ISchedulable() {
+            @Override
+            public void schedule(Date date, String time) {
+
+            }
+        };
+
         // for (Doctor.AvailableAppointment aAppointment :
         // myDoctor.getAvailableAppointments()) {
         // System.out.println(aAppointment.getDate() + " " + aAppointment.getTime());
